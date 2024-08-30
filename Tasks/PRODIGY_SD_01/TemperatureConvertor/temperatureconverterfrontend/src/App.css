@@ -1,0 +1,63 @@
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 600px;
+}
+
+h1 {
+  color: #333;
+}
+
+.converter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+}
+
+input,
+select {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #c0c0c0;
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.result {
+  margin: 20px 0;
+}
+
+.result h2 {
+  color: #333;
+}
+
+.result p {
+  font-size: 1.2rem;
+  color: #555;
+}
