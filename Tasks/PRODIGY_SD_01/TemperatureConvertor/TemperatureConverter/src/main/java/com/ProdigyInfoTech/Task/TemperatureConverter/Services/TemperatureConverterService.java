@@ -1,4 +1,4 @@
-package TemperatureConvertor.TemperatureConverter.src.main.java.com.ProdigyInfoTech.Task.TemperatureConverter.Services;
+package com.ProdigyInfoTech.Task.TemperatureConverter.Services;
 
 import org.springframework.stereotype.Service;
 
@@ -7,10 +7,15 @@ import com.ProdigyInfoTech.Task.TemperatureConverter.Models.TemperatureConversio
 @Service
 public class TemperatureConverterService {
 
+
     public TemperatureConversion convert(TemperatureConversion conversion) {
         double convertedTemperature;
 
-        switch (conversion.getFromUnit().toLowerCase()) {
+
+        if (conversion.getFromUnit().equalsIgnoreCase(conversion.getToUnit())) {
+            convertedTemperature = conversion.getTemperature();
+        } else {
+            switch (conversion.getFromUnit().toLowerCase()) {
             case "celsius":
                 if (conversion.getToUnit().equalsIgnoreCase("fahrenheit")) {
                     convertedTemperature = (conversion.getTemperature() * 9/5) + 32;
@@ -44,8 +49,11 @@ public class TemperatureConverterService {
             default:
                 throw new IllegalArgumentException("Invalid source unit. Please use 'Celsius', 'Fahrenheit', or 'Kelvin'.");
         }
+        }
+
 
         conversion.setConvertedTemperature(convertedTemperature);
+        conversion.addToHistory();
         return conversion;
     }
 }

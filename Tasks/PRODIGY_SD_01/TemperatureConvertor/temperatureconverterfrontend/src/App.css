@@ -45,19 +45,34 @@ button:disabled {
 
 .error {
   color: red;
+  font-weight: bold;
   font-size: 1rem;
   margin: 10px 0;
 }
 
 .result {
   margin: 20px 0;
+  color: green;
+  font-weight: bold;
 }
 
 .result h2 {
+  margin: 20px 0;
+  font-weight: bold;
   color: #333;
 }
 
 .result p {
   font-size: 1.2rem;
   color: #555;
+}
+
+.converter-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.converter-form input,
+.converter-form select {
+  margin-right: 10px;
 }

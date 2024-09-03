@@ -1,4 +1,6 @@
-package TemperatureConvertor.TemperatureConverter.src.main.java.com.ProdigyInfoTech.Task.TemperatureConverter.Models;
+package com.ProdigyInfoTech.Task.TemperatureConverter.Models;
+
+import java.util.HashMap;
 
 public class TemperatureConversion {
 
@@ -6,39 +8,80 @@ public class TemperatureConversion {
     private String fromUnit;
     private String toUnit;
     private double convertedTemperature;
+    private static HashMap<String,String> fromHistory = new HashMap<>();
+    private static HashMap<String,String> toHistory = new HashMap<>();
 
     // Getters and Setters
 
-    public double getTemperature() {
-        return temperature;
+    public void addToHistory() {
+    	fromHistory.put(temperature + " " + fromUnit, convertedTemperature + " " + toUnit);
+        toHistory.put(temperature + " " + fromUnit, convertedTemperature + " " + toUnit);
+    }
+    
+    public static void clearHistory() {
+        fromHistory.clear();
+        toHistory.clear();
     }
 
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
-    }
+	public double getTemperature() {
+		return temperature;
+	}
 
-    public String getFromUnit() {
-        return fromUnit;
-    }
+	public void setTemperature(double temperature) {
+		this.temperature = temperature;
+	}
 
-    public void setFromUnit(String fromUnit) {
-        this.fromUnit = fromUnit;
-    }
+	public String getFromUnit() {
+		return fromUnit;
+	}
 
-    public String getToUnit() {
-        return toUnit;
-    }
+	public void setFromUnit(String fromUnit) {
+		this.fromUnit = fromUnit;
+	}
 
-    public void setToUnit(String toUnit) {
-        this.toUnit = toUnit;
-    }
+	public String getToUnit() {
+		return toUnit;
+	}
 
-    public double getConvertedTemperature() {
-        return convertedTemperature;
-    }
+	public void setToUnit(String toUnit) {
+		this.toUnit = toUnit;
+	}
 
-    public void setConvertedTemperature(double convertedTemperature) {
-        this.convertedTemperature = convertedTemperature;
-    }
+	public double getConvertedTemperature() {
+		return convertedTemperature;
+	}
+
+	public void setConvertedTemperature(double convertedTemperature) {
+		this.convertedTemperature = convertedTemperature;
+	}
+
+	public static HashMap<String, String> getFromHistory() {
+		return fromHistory;
+	}
+
+	public static void setFromHistory(HashMap<String, String> fromHistory) {
+		TemperatureConversion.fromHistory = fromHistory;
+	}
+
+	public static HashMap<String, String> getToHistory() {
+		return toHistory;
+	}
+
+	public static void setToHistory(HashMap<String, String> toHistory) {
+		TemperatureConversion.toHistory = toHistory;
+	}
+
+	public TemperatureConversion() {
+		super();
+	}
+
+	public TemperatureConversion(double temperature, String fromUnit, String toUnit, double convertedTemperature) {
+		super();
+		this.temperature = temperature;
+		this.fromUnit = fromUnit;
+		this.toUnit = toUnit;
+		this.convertedTemperature = convertedTemperature;
+	}
+    
 }
 
